@@ -11,13 +11,14 @@ namespace Kata
                 return 0;    
             }
 
-            var strings = s.Split(",");
-            if (strings.Length == 1)
+            var numbers = s.Split(",").Select(int.Parse).ToArray();
+            if (numbers.Count()== 1)
             {
-                return int.Parse(s);
+                return numbers.First();
             }
-            int result = int.Parse(strings.First()) + int.Parse(strings.Last());
 
+            int result = numbers.Sum();
+                
             return result;
         }
     }
